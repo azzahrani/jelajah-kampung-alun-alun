@@ -163,6 +163,7 @@
     <header class="dashboard-topbar">
       <div class="topbar-left">
         <button class="back-btn" onclick="backHome()" aria-label="Kembali ke beranda">←</button>
+        <button class="hamburger-btn" onclick="toggleSidebar()" aria-label="Buka menu lokasi">☰</button>
 
         <div>
           <h2>Jelajah Kampung Alun-Alun, Kotagede</h2>
@@ -172,15 +173,20 @@
 
       <div class="topbar-right">
         <button onclick="resetView()">Reset Peta</button>
-        <button onclick="backHome()">Beranda</button>
+        <button class="btn-beranda-topbar" onclick="backHome()">Beranda</button>
       </div>
     </header>
+
+    <!-- OVERLAY GELAP DI BELAKANG DRAWER SIDEBAR (MOBILE) -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
     <!-- BODY DASHBOARD: sidebar + peta + panel detail SEKARANG BENAR DI DALAM dashboard-body -->
     <div class="dashboard-body">
 
       <!-- SIDEBAR KIRI -->
-      <aside class="sidebar">
+      <aside class="sidebar" id="sidebarPanel">
+
+        <button class="sidebar-close-btn" onclick="closeSidebar()" aria-label="Tutup menu">✕ Tutup</button>
 
         <div class="panel">
           <h3>Informasi WebGIS</h3>
@@ -222,7 +228,9 @@
       </main>
 
       <!-- PANEL DETAIL KANAN -->
-      <aside class="info-sidebar">
+      <aside class="info-sidebar" id="infoSidebarPanel">
+        <button class="info-close-btn" onclick="closeInfoSidebar()" aria-label="Tutup detail">✕ Tutup</button>
+
         <div class="info-header">
           <h3>Detail Lokasi</h3>
           <p>Informasi lokasi yang dipilih akan tampil di sini.</p>
