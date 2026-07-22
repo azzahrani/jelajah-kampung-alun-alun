@@ -1,0 +1,897 @@
+:root {
+  /* Palet warna tema heritage (coklat & emas) — ubah di sini untuk ganti tema */
+  --brown-darkest: #2b1b12;
+  --brown-dark: #8B4513;
+  --brown-medium: #8b5a2b;
+  --brown-text: #5a351f;
+  --text-dark: #4a2d1b;
+
+  --gold: #c89b3c;
+  --gold-light: #d7a84f;
+  --gold-accent: #b7832f;
+  --gold-text: #ffe0a3;
+
+  --tan-border: #c7a36a;
+  --cream: #fff8e8;
+  --cream-text: #fff3dc;
+  --bg-light: #f3eadb;
+  --bg-medium: #ead8bb;
+}
+
+/* Reset supaya padding tidak menambah lebar elemen (mencegah scroll horizontal) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ================= HOMEPAGE BARU (TEMA HERITAGE COKLAT) ================= */
+
+
+.hero-home {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(33, 20, 12, 0.78), rgba(33, 20, 12, 0.84)),
+    url("images/hero-kampung.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 40px 70px 90px;
+  position: relative;
+}
+
+.hero-home::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  width: 125px;
+  height: 125px;
+  border-top: 5px double #d7a84f;
+  border-left: 5px double #d7a84f;
+}
+
+.hero-home::after {
+  content: "";
+  position: absolute;
+  bottom: 45px;
+  right: 40px;
+  width: 125px;
+  height: 125px;
+  border-bottom: 5px double #d7a84f;
+  border-right: 5px double #d7a84f;
+}
+
+.hero-text {
+  max-width: 850px;
+  position: relative;
+  z-index: 2;
+  background: rgba(55, 34, 21, 0.55);
+  padding: 38px;
+  border-left: 7px solid #d7a84f;
+  border-radius: 0 28px 28px 0;
+}
+
+.hero-text h1 {
+  font-size: 58px;
+  line-height: 1.15;
+  color: #fff0c2;
+  margin-bottom: 22px;
+}
+
+.home-section {
+  padding: 85px 65px;
+  background: #f3eadb;
+}
+
+.home-section:nth-child(even) {
+  background: #ead8bb;
+}
+
+.section-container {
+  max-width: 1100px;
+  margin: auto;
+  background: rgba(255, 248, 232, 0.92);
+  border: 2px solid #c7a36a;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 8px 22px rgba(64, 38, 18, 0.16);
+}
+
+.section-container h2 {
+  font-size: 34px;
+  color: #4a2d1b;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.section-container h2::before {
+  content: "❖";
+  color: #b7832f;
+  margin-right: 12px;
+}
+
+.section-container h2::after {
+  content: "❖";
+  color: #b7832f;
+  margin-left: 12px;
+}
+
+.section-container p {
+  font-size: 16.5px;
+  line-height: 1.8;
+  text-align: justify;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  text-align: center !important;
+  max-width: 780px;
+  margin: 0 auto 30px;
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 24px;
+  margin-top: 35px;
+}
+
+.location-card {
+  background: #fff8e8;
+  padding: 25px;
+  border-radius: 20px;
+  border: 2px solid #c7a36a;
+  border-top: 8px solid #8b5a2b;
+  box-shadow: 0 6px 16px rgba(78, 47, 23, 0.16);
+  transition: 0.3s;
+  position: relative;
+}
+
+.location-card::before {
+  content: "✦";
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  color: #b7832f;
+  font-size: 20px;
+}
+
+.location-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(78, 47, 23, 0.24);
+}
+
+.location-card h3 {
+  color: #4a2d1b;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.location-card p {
+  font-size: 15px;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.webgis-section {
+  background: linear-gradient(180deg, #dfc8a5, #f3eadb);
+}
+
+.profile-section {
+  background: #f3eadb;
+}
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.profile-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 6px double #8b5a2b;
+  background: linear-gradient(135deg, #c7a36a, #fff8e8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5a351f;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.profile-info h3 {
+  color: #4a2d1b;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.profile-info table {
+  width: 100%;
+  margin-bottom: 18px;
+  border-collapse: collapse;
+}
+
+.profile-info td {
+  padding: 7px 0;
+  font-size: 15px;
+  vertical-align: top;
+}
+
+.profile-info td:first-child {
+  width: 120px;
+  font-weight: bold;
+  color: #4a2d1b;
+}
+
+.home-footer {
+  background: linear-gradient(90deg, #2b1b12, #5a351f, #2b1b12);
+  color: #fff3dc;
+  text-align: center;
+  padding: 22px;
+  border-top: 4px solid #c89b3c;
+}
+
+/* RESPONSIVE HOMEPAGE */
+@media screen and (max-width: 768px) {
+  .hero-home {
+    padding: 40px 25px 55px;
+  }
+
+  .hero-text {
+    padding: 28px;
+    border-radius: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+  .home-section {
+    padding: 55px 22px;
+  }
+
+  .section-container {
+    padding: 26px;
+  }
+
+  .profile-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .profile-photo {
+    margin: auto;
+  }
+}
+/* ================= TOMBOL MASUK KE PETA ================= */
+
+.btn-map {
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f2c46b, #b77a28, #6b3f1d);
+  color: #fff8e6;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: 0.35s ease;
+}
+
+/* efek cahaya geser */
+.btn-map::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -90px;
+  width: 70px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: 0.6s;
+}
+
+.btn-map:hover::before {
+  left: 120%;
+}
+
+.btn-map:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:
+    0 14px 26px rgba(0, 0, 0, 0.45),
+    0 0 18px rgba(242, 196, 107, 0.45);
+}
+
+.btn-map:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 248, 230, 0.22);
+  border: 1px solid rgba(255, 248, 230, 0.45);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-arrow {
+  width: 30px;
+  height: 30px;
+  background: rgba(59, 34, 18, 0.42);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  transition: 0.3s;
+}
+
+.btn-map:hover .btn-arrow {
+  transform: translateX(5px);
+  background: rgba(59, 34, 18, 0.65);
+}
+/* ========================= */
+/* FIX TAMPILAN DASHBOARD PETA */
+/* ========================= */
+
+#mapDashboard{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:#f3eadb;
+    z-index:99999;
+    overflow:hidden;
+}
+
+#mapDashboard.active{
+    display:flex;
+    flex-direction:column;
+}
+
+/* TOP BAR ATAS */
+.dashboard-topbar {
+  height: 72px;
+  background: linear-gradient(90deg, #2b1b12, #5a351f, #2b1b12);
+  color: #fff3dc;
+  border-bottom: 4px solid #c89b3c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.topbar-left h2 {
+  font-size: 22px;
+  color: #ffe0a3;
+  margin: 0;
+}
+
+.topbar-left p {
+  font-size: 13px;
+  margin: 3px 0 0;
+  color: #fff3dc;
+}
+
+.back-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #d7a84f;
+  background: #8b5a2b;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.topbar-right button {
+  padding: 9px 16px;
+  border-radius: 20px;
+  border: 1px solid #d7a84f;
+  background: #8b5a2b;
+  color: white;
+  cursor: pointer;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.topbar-right button:hover,
+.back-btn:hover {
+  background: #c89b3c;
+}
+
+/* BODY DASHBOARD */
+.dashboard-body {
+  display: grid;
+  grid-template-columns: 310px 1fr 330px;
+  height: calc(100vh - 72px);
+  overflow: hidden;
+}
+
+/* SIDEBAR KIRI */
+.sidebar {
+  background: #fff8e8;
+  border-right: 5px double #8b5a2b;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.panel {
+  background: #f3eadb;
+  border: 2px solid #c7a36a;
+  border-radius: 18px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.panel h3 {
+  color: #4a2d1b;
+  margin-bottom: 10px;
+}
+
+.panel p,
+.panel li {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#filterJenis {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: 2px solid #8b5a2b;
+  background: #fff8e8;
+}
+
+/* DAFTAR LOKASI */
+.list-lokasi {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lokasi-item {
+  background: #fff8e8;
+  border: 1.5px solid #c7a36a;
+  border-left: 6px solid #8b5a2b;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lokasi-item:hover {
+  transform: translateX(5px);
+  background: #fff1cf;
+}
+
+.lokasi-item h4 {
+  font-size: 15px;
+  color: #4a2d1b;
+  margin-bottom: 4px;
+}
+
+.lokasi-item p {
+  font-size: 12px;
+  color: #5a351f;
+}
+
+/* LEGENDA */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 8px;
+}
+
+.legend-dot {
+  width: 15px;
+  height: 15px;
+  background: #c89b3c;
+  border: 3px solid #5a351f;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-area {
+  width: 22px;
+  height: 14px;
+  background: rgba(200, 155, 60, 0.35);
+  border: 2px solid #8b4513;
+  display: inline-block;
+}
+
+/* MARKER PETA — BULAT, SAMA SEPERTI SIMBOL DI LEGENDA */
+.marker-lokasi {
+  width: 16px !important;
+  height: 16px !important;
+  background: #c89b3c;
+  border: 3px solid #5a351f;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  box-sizing: content-box;
+}
+
+/* AREA PETA */
+.map-area {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+/* PANEL KANAN */
+.info-sidebar {
+  background: #fff8e8;
+  border-left: 5px double #8b5a2b;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.info-header {
+  background: linear-gradient(135deg, #5a351f, #8b5a2b);
+  color: #fff3dc;
+  padding: 18px;
+  border-radius: 18px;
+  margin-bottom: 16px;
+}
+
+.info-header h3 {
+  color: #ffe0a3;
+  margin-bottom: 6px;
+}
+
+.detail-box {
+  background: #f3eadb;
+  border: 2px solid #c7a36a;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.empty-info {
+  text-align: center;
+  padding: 40px 10px;
+  color: #5a351f;
+}
+
+/* ================= ISI POPUP MARKER DI PETA ================= */
+.popup-content {
+  min-width: 200px;
+  font-family: inherit;
+}
+
+.popup-content h3 {
+  color: #4a2d1b;
+  font-size: 17px;
+  margin: 6px 0 8px;
+}
+
+.popup-content p {
+  font-size: 13.5px;
+  margin: 4px 0;
+  color: #3a2313;
+}
+
+.popup-img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #c7a36a;
+  margin-bottom: 6px;
+}
+
+/* Tombol "Lihat Detail" di dalam popup */
+.popup-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 7px 16px;
+  background: linear-gradient(135deg, #c89b3c, #8b5a2b);
+  color: #fff8e6;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.25s;
+}
+
+.popup-btn:hover {
+  background: linear-gradient(135deg, #8b5a2b, #c89b3c);
+  transform: translateY(-1px);
+}
+
+/* ================= PANEL DETAIL LOKASI (KANAN) ================= */
+#detailLokasi h2 {
+  color: #4a2d1b;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.detail-label {
+  display: inline-block;
+  background: #e6cd9c;
+  color: #4a2d1b;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  font-size: 13.5px;
+}
+
+.detail-table td {
+  padding: 6px 4px;
+  border-bottom: 1px solid #e0cba3;
+  color: #3a2313;
+}
+
+.detail-table td:first-child {
+  font-weight: 700;
+  color: #4a2d1b;
+  width: 40%;
+}
+
+.detail-story {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: #3a2313;
+  text-align: justify;
+}
+
+/* GALERI FOTO — SLIDESHOW (DETAIL LOKASI) */
+.photo-slider {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid #c7a36a;
+  margin-bottom: 14px;
+  background: #e6d9bd;
+}
+
+.slide-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.slide-img.aktif {
+  opacity: 1;
+}
+
+.slide-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(43, 27, 18, 0.55);
+  color: #fff8e6;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.25s;
+}
+
+.slide-nav:hover {
+  background: rgba(43, 27, 18, 0.85);
+}
+
+.slide-nav.prev {
+  left: 8px;
+}
+
+.slide-nav.next {
+  right: 8px;
+}
+
+.slide-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+.slide-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 248, 230, 0.55);
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.slide-dot.aktif {
+  background: #fff8e6;
+  width: 20px;
+  border-radius: 4px;
+}
+
+/* BIAR LANDING HILANG SAAT MASUK PETA */
+#landingPage.hide {
+  display: none;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1050px) {
+  .dashboard-body {
+    grid-template-columns: 290px 1fr;
+  }
+
+  .info-sidebar {
+    display: none;
+  }
+}
+/* ================= NAVBAR UTAMA HERITAGE ================= */
+
+.landing-navbar {
+  width: 100%;
+  height: 76px;
+  padding: 0 70px;
+  background: linear-gradient(90deg, #2b1b12, #4b2f20, #2b1b12);
+  color: #fff3dc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid #c89b3c;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffe0a3;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.brand::before {
+  content: "✦ ";
+  color: #d7a84f;
+}
+
+.brand::after {
+  content: " ✦";
+  color: #d7a84f;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-menu a {
+  color: #fff3dc;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 15px;
+  border-radius: 999px;
+  transition: 0.3s ease;
+}
+
+.nav-menu a:hover {
+  background: rgba(200, 155, 60, 0.22);
+  color: #ffd98a;
+  transform: translateY(-2px);
+}
+
+/* Tombol Peta di menu */
+.nav-menu a:last-child {
+  background: linear-gradient(135deg, #c89b3c, #8b5a2b);
+  color: white;
+  border: 1px solid #ffe0a3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.nav-menu a:last-child:hover {
+  background: linear-gradient(135deg, #8b5a2b, #c89b3c);
+  color: white;
+}
+
+/* Supaya hero tidak ketutup navbar */
+.hero-home {
+  margin-top: 0;
+}
+
+/* Responsive untuk layar kecil */
+@media screen and (max-width: 900px) {
+  .landing-navbar {
+    height: auto;
+    padding: 16px 25px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-menu a {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .brand {
+    font-size: 19px;
+    text-align: center;
+  }
+}

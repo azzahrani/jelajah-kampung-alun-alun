@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Jelajah Kampung Alun-Alun, Kotagede</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- CSS Sendiri -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ================= HOMEPAGE ================= -->
+  <section id="landingPage" class="landing-page">
+
+
+    <!-- NAVBAR -->
+    <nav class="landing-navbar">
+      <div class="brand">Jelajah Kampung Alun-Alun</div>
+
+      <div class="nav-menu">
+        <a href="#home">Beranda</a>
+        <a href="#sejarah">Sejarah</a>
+        <a href="#lokasi">Lokasi Sejarah</a>
+        <a href="#webgis">WebGIS</a>
+        <a href="#profil">Profil</a>
+        <a href="#" onclick="openMap(); return false;">Peta</a>
+      </div>
+    </nav>
+
+    <!-- HERO / HOME -->
+    <section id="home" class="hero-home">
+      <div class="hero-text">
+        <p class="subtitle">WebGIS Heritage Kotagede</p>
+
+        <h1>Jelajah Kampung Alun-Alun, Kotagede</h1>
+
+        <p class="description">
+          Media informasi digital berbasis peta untuk mengenalkan sejarah,
+          lokasi penting, dan nilai budaya Kampung Alun-Alun sebagai bagian
+          dari kawasan pusaka Kotagede.
+        </p>
+
+        <button class="btn-main btn-map" onclick="openMap()">
+          <span class="btn-icon">🗺️</span>
+          <span class="btn-text">Masuk ke Peta</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SEJARAH KAMPUNG -->
+    <section id="sejarah" class="home-section">
+      <div class="section-container">
+        <h2>Sejarah Kampung Alun-Alun</h2>
+
+        <p>
+          Kotagede adalah ibu kota pertama Kerajaan Mataram Islam, berawal dari tanah hutan Alas Mentaok yang diberikan Sultan Hadiwijaya dari Pajang kepada Ki Ageng Pemanahan. Putranya, Sutawijaya, kemudian mendirikan kerajaan sendiri dengan gelar Panembahan Senopati dan membangun keraton di kawasan ini pada akhir abad ke-16 (Gramedia Literasi & Sindonews, 2023). Kampung Alun-Alun, yang terletak di selatan Pasar Kotagede, dinamai demikian karena dahulu berfungsi sebagai alun-alun atau lapangan utama keraton Mataram Islam pada masa Panembahan Senopati. Barulah sekitar abad ke-18, setelah pusat pemerintahan berpindah, area ini beralih fungsi menjadi permukiman, dengan kerukunan antarwarga yang terjalin sejak tahun 1830-an pasca Perang Diponegoro (Kemantren Kotagede & Harian Jogja, 2023). Kawasan ini kini lebih dikenal dengan julukan "Between Two Gates" (Lawang Pethuk), nama yang diberikan Tim Peneliti Arsitektur UGM pada 1986 karena sembilan rumah joglo di dalamnya diapit dua gerbang di ujung timur dan barat, terhubung oleh Jalan Rukunan (detikJogja, 2023).
+        </p>
+      </div>
+    </section>
+
+    <!-- DAFTAR LOKASI SEJARAH -->
+    <section id="lokasi" class="home-section lokasi-section">
+      <div class="section-container">
+        <h2>Daftar Lokasi Sejarah</h2>
+
+        <p class="section-desc">
+          Berikut merupakan beberapa lokasi sejarah yang dapat ditampilkan dalam
+          WebGIS Jelajah Kampung Alun-Alun, Kotagede.
+        </p>
+
+        <div class="card-wrapper" id="daftarLokasiSejarah">
+          <p style="grid-column: 1 / -1; text-align: center;">Memuat data lokasi...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PENJELASAN WEBGIS -->
+    <section id="webgis" class="home-section webgis-section">
+      <div class="section-container">
+        <h2>Tentang WebGIS</h2>
+
+        <p>
+          WebGIS atau Web Geographic Information System merupakan sistem informasi
+          geografis berbasis web yang digunakan untuk menampilkan data lokasi secara
+          interaktif. Dalam website ini, WebGIS digunakan untuk menampilkan titik-titik
+          lokasi sejarah di Kampung Alun-Alun dan kawasan sekitarnya.
+        </p>
+
+        <p>
+          Setiap titik lokasi pada peta dapat diklik untuk menampilkan informasi berupa
+          nama lokasi, jenis lokasi, koordinat, serta cerita sejarah dari tempat tersebut.
+          Dengan tampilan berbasis peta, informasi sejarah tidak hanya dibaca dalam bentuk
+          tulisan, tetapi juga dapat dilihat berdasarkan posisi lokasinya secara langsung.
+        </p>
+
+        <p>
+          WebGIS ini diharapkan dapat menjadi media pengenalan sejarah lokal yang lebih
+          menarik, mudah diakses, dan bermanfaat bagi masyarakat, pelajar, pengunjung,
+          maupun pihak yang ingin mengenal kawasan Kampung Alun-Alun, Kotagede.
+        </p>
+
+        <button class="btn-main" onclick="openMap()">Buka WebGIS</button>
+      </div>
+    </section>
+
+    <!-- PROFIL PEMBUAT WEB -->
+    <section id="profil" class="home-section profile-section">
+      <div class="section-container">
+        <h2>Profil Pembuat Web</h2>
+
+        <div class="profile-card">
+
+          <div class="profile-photo">
+            <span>Foto</span>
+          </div>
+
+          <div class="profile-info">
+            <h3>Hay Perkenalkan Aku..</h3>
+
+            <table>
+              <tr>
+                <td>Nama</td>
+                <td>: Azzahra Nisrina Iskandariah</td>
+              </tr>
+              <tr>
+                <td>Instansi</td>
+                <td>: UPN "Veteran" Yogyakarta</td>
+              </tr>
+              <tr>
+                <td>Program</td>
+                <td>: KKN BN.84.020</td>
+              </tr>
+              <tr>
+                <td>Lokasi</td>
+                <td>: Kampung Alun-Alun, Purbayan, Kotagede</td>
+              </tr>
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER HOME -->
+    <footer class="home-footer">
+      <p>Jelajah Kampung Alun-Alun, Kotagede | KKN BN.84.020</p>
+    </footer>
+
+  </section>
+
+
+  <!-- ================= DASHBOARD PETA WEBGIS ================= -->
+  <section id="mapDashboard" class="map-dashboard">
+
+    <header class="dashboard-topbar">
+      <div class="topbar-left">
+        <button class="back-btn" onclick="backHome()" aria-label="Kembali ke beranda">←</button>
+
+        <div>
+          <h2>Jelajah Kampung Alun-Alun, Kotagede</h2>
+          <p>Peta Interaktif Lokasi Sejarah Kampung Alun-Alun</p>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button onclick="resetView()">Reset Peta</button>
+        <button onclick="backHome()">Beranda</button>
+      </div>
+    </header>
+
+    <!-- BODY DASHBOARD: sidebar + peta + panel detail SEKARANG BENAR DI DALAM dashboard-body -->
+    <div class="dashboard-body">
+
+      <!-- SIDEBAR KIRI -->
+      <aside class="sidebar">
+
+        <div class="panel">
+          <h3>Informasi WebGIS</h3>
+          <p>
+            Klik salah satu titik lokasi pada peta untuk menampilkan nama lokasi,
+            jenis lokasi, koordinat, dan cerita sejarah.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Filter Jenis Lokasi</h3>
+
+          <select id="filterJenis" onchange="filterMarker()">
+            <option value="Semua">Semua Lokasi</option>
+          </select>
+        </div>
+
+        <div class="panel">
+          <h3>Daftar Lokasi</h3>
+          <div id="listLokasi" class="list-lokasi">
+            <!-- Daftar lokasi muncul otomatis dari script.js -->
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Legenda</h3>
+
+          <div class="legend-item">
+            <span class="legend-dot"></span>
+            <p>Titik Lokasi Sejarah</p>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- AREA PETA -->
+      <main class="map-area">
+        <div id="map"></div>
+      </main>
+
+      <!-- PANEL DETAIL KANAN -->
+      <aside class="info-sidebar">
+        <div class="info-header">
+          <h3>Detail Lokasi</h3>
+          <p>Informasi lokasi yang dipilih akan tampil di sini.</p>
+        </div>
+
+        <div id="detailLokasi" class="detail-box">
+          <div class="empty-info">
+            <h4>Belum ada lokasi dipilih</h4>
+            <p>Klik marker pada peta atau pilih lokasi dari daftar.</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- PapaParse untuk membaca CSV -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+  <!-- Script Sendiri -->
+  <script src="script.js"></script>
+
+</body>
+</html>
