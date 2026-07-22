@@ -45,6 +45,38 @@ function resetView() {
 
 
 // =============================
+// DRAWER SIDEBAR & PANEL DETAIL (KHUSUS TAMPILAN HP)
+// =============================
+// Di layar lebar, sidebar kiri & panel detail kanan selalu tampil
+// berdampingan dengan peta. Di HP, keduanya disembunyikan dan hanya
+// muncul sebagai panel geser (drawer) saat dibutuhkan.
+
+var BATAS_LEBAR_MOBILE = 768;
+
+function isTampilanMobile() {
+  return window.innerWidth <= BATAS_LEBAR_MOBILE;
+}
+
+function toggleSidebar() {
+  document.getElementById("sidebarPanel").classList.toggle("open");
+  document.getElementById("sidebarOverlay").classList.toggle("show");
+}
+
+function closeSidebar() {
+  document.getElementById("sidebarPanel").classList.remove("open");
+  document.getElementById("sidebarOverlay").classList.remove("show");
+}
+
+function openInfoSidebar() {
+  document.getElementById("infoSidebarPanel").classList.add("open");
+}
+
+function closeInfoSidebar() {
+  document.getElementById("infoSidebarPanel").classList.remove("open");
+}
+
+
+// =============================
 // MEMBUAT PETA
 // =============================
 
@@ -367,6 +399,13 @@ function tampilkanDetail(index) {
   `;
 
   map.setView([lat, lng], 18);
+
+  // Di tampilan HP: tutup drawer daftar lokasi (kalau sedang terbuka)
+  // lalu tampilkan panel detail sebagai drawer dari kanan.
+  if (isTampilanMobile()) {
+    closeSidebar();
+    openInfoSidebar();
+  }
 }
 
 
