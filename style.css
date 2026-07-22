@@ -895,3 +895,236 @@
     text-align: center;
   }
 }
+/* ============================================================ */
+/* ================= TAMPILAN RESPONSIF HP (MOBILE) ============= */
+/* ============================================================ */
+
+/* Cegah scroll horizontal tak sengaja di semua ukuran layar */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Tombol hamburger & tombol tutup: disembunyikan di layar besar,
+   baru dimunculkan lewat media query di bawah */
+.hamburger-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #d7a84f;
+  background: #8b5a2b;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-close-btn,
+.info-close-btn {
+  display: none;
+  margin-left: auto;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px solid #8b5a2b;
+  background: #f3eadb;
+  color: #4a2d1b;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  gap: 6px;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 12, 6, 0.55);
+  z-index: 10001;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+/* --------- TABLET / HP BESAR (<=1050px): sudah ada aturan lama
+   yang menyembunyikan info-sidebar & mengecilkan sidebar kiri.
+   Di breakpoint bawah ini kita ubah semuanya jadi drawer geser. --------- */
+
+@media screen and (max-width: 768px) {
+
+  /* TOPBAR: dibuat bisa melipat & lebih ringkas */
+  .dashboard-topbar {
+    height: auto;
+    min-height: 64px;
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  .topbar-left {
+    gap: 10px;
+  }
+
+  .topbar-left h2 {
+    font-size: 16px;
+  }
+
+  .topbar-left p {
+    display: none; /* subjudul disembunyikan biar topbar tidak penuh */
+  }
+
+  .hamburger-btn {
+    display: inline-flex;
+  }
+
+  .back-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .topbar-right {
+    display: flex;
+    gap: 6px;
+  }
+
+  .topbar-right button {
+    padding: 7px 12px;
+    font-size: 12px;
+    margin-left: 0;
+  }
+
+  /* Tombol "Beranda" di topbar disembunyikan di HP karena sudah
+     ada tombol panah kembali (←) yang fungsinya sama */
+  .btn-beranda-topbar {
+    display: none;
+  }
+
+  /* BODY DASHBOARD: peta full-width, sidebar kiri & kanan jadi drawer */
+  .dashboard-body {
+    display: block;
+    position: relative;
+    height: calc(100vh - 64px);
+  }
+
+  .map-area {
+    width: 100%;
+    height: 100%;
+  }
+
+  .sidebar,
+  .info-sidebar {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 84%;
+    max-width: 320px;
+    z-index: 10002;
+    box-shadow: 0 0 26px rgba(0, 0, 0, 0.45);
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar {
+    left: 0;
+    transform: translateX(-105%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .info-sidebar {
+    right: 0;
+    left: auto;
+    display: block; /* menimpa aturan lama yang menyembunyikannya */
+    transform: translateX(105%);
+    border-left: 5px double #8b5a2b;
+    border-right: none;
+  }
+
+  .info-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-close-btn,
+  .info-close-btn {
+    display: inline-flex;
+  }
+}
+
+/* --------- HP KECIL (<=480px): perhalus ukuran teks & spasi --------- */
+
+@media screen and (max-width: 480px) {
+
+  .hero-home {
+    padding: 30px 16px 45px;
+  }
+
+  .hero-text {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .hero-text h1 {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .hero-text .description {
+    font-size: 14px;
+  }
+
+  .btn-map {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+
+  .home-section {
+    padding: 40px 14px;
+  }
+
+  .section-container {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .section-container h2 {
+    font-size: 22px;
+  }
+
+  .section-container p {
+    font-size: 14.5px;
+    text-align: left;
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+    font-size: 15px;
+  }
+
+  .profile-info h3 {
+    font-size: 20px;
+  }
+
+  .profile-info td {
+    font-size: 13px;
+  }
+
+  .sidebar,
+  .info-sidebar {
+    width: 88%;
+    max-width: none;
+  }
+}
